@@ -1,0 +1,40 @@
+---
+title: "Math Examples"
+author: "Dominic Adducci"
+date: "2024-08-25"
+output: html_document
+  cole_folding: hide
+---
+
+```{r}
+
+library(tidyverse)
+
+```
+
+## Contrast Statement Practice
+
+Will use the mtcars data set to show examples of applying contrasts. A simple linear regression model will be built where the output is the miles per gallon (mpg) and the predictor variables are the number of cylinders (cyl) and displcement (disp). This simple model will be used to start. The number of cylinders will be turned into a factor varaible. 
+
+Simple Linear Resgression Assumptions: 
+
+1.) **Linearity**The relationship between $\bf{X}$ and $\bf{Y}$ must be linear. 
+2.) **Independence of Errors**: There is not a relationship between the residuals and the $\bf{Y}$ variable; in other words, $\bf{Y}$ is independenet of errors. 
+3.) **Normality of Errors**: The residuals must be approximately normally distributed. 
+4.) **Equal Variances**: The variance of the residuals is the same for all values of $\bf{X}$.
+
+```{r}
+
+# Using the mtcars data set
+
+# Formatting mtcars data set. 
+mtcars_slr_df <- mtcars %>% 
+  mutate(cyl = factor(cyl)) %>%
+  select(mpg,cyl,disp)
+
+# Building the simple linear regression model. 
+mtcars_slr <- lm(mpg ~ cyl + disp, data = mtcars_slr_df)
+
+
+
+```
