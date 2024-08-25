@@ -35,6 +35,8 @@ mtcars_slr_df <- mtcars %>%
 # Building the simple linear regression model. 
 mtcars_slr <- lm(mpg ~ cyl + disp, data = mtcars_slr_df)
 
+summary(mtcars_slr)
+
 
 
 ```
